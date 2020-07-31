@@ -54,7 +54,7 @@ public class Proceso {
                   break;   
                 }
                             
-<<<<<<< HEAD
+
                 case 3:{
                     
                     int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
@@ -64,12 +64,12 @@ public class Proceso {
                     Profesores profes = new Profesores(cedula,nombre,tarjeta);
                     profesores.add(profes);
                     personas.add(profes);
-                    
+                    }
                      
-=======
+
                 case 5:{
                      System.exit(0);
->>>>>>> dbe2692403c9d805688d7ac07ad8cdd40b06cbc6
+
                     break;
                 }
                 default:{
