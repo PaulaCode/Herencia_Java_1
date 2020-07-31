@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Control.Proyecto_Universidad;
 import Vista.InOut;
 import java.util.ArrayList;
 
@@ -15,27 +16,25 @@ public class Proceso {
         ArrayList <Personas> Adentro = new ArrayList();
         ArrayList <Estudiantes> lista_estudiantes = new ArrayList(); 
         ArrayList <Profesores> profesores = new ArrayList();
-    
-       InOut inOut = new InOut();
+        ArrayList <Personal_Seguridad> lista_seguridad = new ArrayList();
+        ArrayList <Decanos> lista_decanos = new ArrayList();
+        InOut inOut = new InOut();
 
 
        
     public void agregarPersona(){
         
-        boolean verificar;
         int cedula;
         String nombre;
-        do{
-         nombre = inOut.solicitarNombre("\nDigite su nombre");
+   
          cedula = inOut.solicitarEntero("\nDigite la cédula");
-        
-        verificar = Verificarcc(cedula);
-        
-        if(verificar == false);
-            inOut.mostrarResultado("\nLa cédula está repetida ");
-        
-        } while(verificar == false);
-
+         while(Verificarcc(cedula))
+         {
+           cedula = inOut.solicitarEntero("\nDigite la cédula");   
+         }
+         nombre = inOut.solicitarNombre("\nDigite su nombre");
+ 
+       
          String mensaje = "¿Qué tipo de persona desea agregar? \n"
                          +"1. Estudiante \n"
                          +"2. Decanos \n"+
@@ -56,15 +55,17 @@ public class Proceso {
                     Estudiantes obj_estudiante = new Estudiantes(cedula,nombre,codigo_estudiante);
                     lista_estudiantes.add(obj_estudiante);
                     personas.add(obj_estudiante);
+                    Proyecto_Universidad.menu();
                     break;   
                 }
    
                 case 2:
                 {
-                  break;   
+                   
+                    Proyecto_Universidad.menu();
+                    break;   
                 }
                             
-
                 case 3:{
                     
                     int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
@@ -75,15 +76,24 @@ public class Proceso {
                     profesores.add(profes);
                     personas.add(profes);
 
+                     Proyecto_Universidad.menu();
+                    break;
+                }
+                case 4:{
+                    int numero_certificacion= inOut.solicitarEntero("Ingrese el número de matrícula de vigilante");
+                    while(validarMatriculaVigilante(numero_certificacion))
+                    {
+                        numero_certificacion= inOut.solicitarEntero("Ingrese el número de matrícula de vigilante  \n Esa matrícula ya se encuentra registrada");
                     }
-                     
-
- 
-                     
-
-                case 5:{
-                     System.exit(0);
-
+                    String arma = inOut.solicitarNombre("Digite el modelo de la arma");
+                    int numero_balas = inOut.solicitarEntero("Digite el número de balas");
+                    Personal_Seguridad obj_seguridad = new Personal_Seguridad(numero_certificacion,arma,numero_balas,cedula,nombre);
+                    lista_seguridad.add(obj_seguridad);
+                    personas.add(obj_seguridad);
+                    Proyecto_Universidad.menu();
+                }
+       case 5:{
+                     Proyecto_Universidad.menu();
                     break;
                 }
                 default:{
@@ -95,13 +105,13 @@ public class Proceso {
     public void buscarPersona(){
         
         int cedula = inOut.solicitarEntero("\nDigite el número de cédula de la persona que desee buscar: ");
-        
+        boolean estado=false;
         for(int i=0 ; i<personas.size(); i++){
             
             if(personas.get(i).getIdentificacion_persona() == cedula){
       
-                inOut.mostrarResultado("\nLa persona es");
-                
+                inOut.mostrarResultado("\nLa persona es: ");
+                estado=true;
             }
                 
         }
@@ -126,7 +136,6 @@ public class Proceso {
           }
           return false;
     }
-
       public boolean VerificarTarjetadeProfesor(int c){
           boolean flag=false;
           for(int i =0;i<profesores.size();i++){
@@ -136,6 +145,7 @@ public class Proceso {
           }
           return flag;
       }
+<<<<<<< HEAD
       public void EntrarenlaU(){
           
         int cel = inOut.solicitarEntero("Ingrese la cedula para entrar en la universidad");
@@ -155,5 +165,17 @@ public class Proceso {
             
           }
           return null;
+=======
+      public boolean validarMatriculaVigilante(int matricula_vigilante)
+      {
+          for(int i=0;i<lista_seguridad.size();i++)
+          {
+              if(lista_seguridad.get(i).getnumCertificacion()==matricula_vigilante)
+              {
+                  return true;
+              }
+          }
+          return false;
+>>>>>>> 8155a00e778dc0db0f1e70e9e7a7d5fd9116f77a
       }
 }
