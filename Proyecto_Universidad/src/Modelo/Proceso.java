@@ -60,14 +60,7 @@ public class Proceso {
    
                 case 2:
                 {
-                    int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
-                    while(VerificarTarjetadeProfesor(tarjeta) == true ){
-                      tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
-                    }
-                    String facultad = inOut.solicitarNombre("Digite el nombre de la sede o facultad que representa");
-                    Decanos obj_decano = new Decanos(cedula,nombre,tarjeta,facultad);
-                    lista_decanos.add(obj_decano);
-                    personas.add(obj_decano);
+                   
                     Proyecto_Universidad.menu();
                     break;   
                 }
