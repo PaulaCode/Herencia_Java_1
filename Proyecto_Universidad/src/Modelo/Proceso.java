@@ -18,9 +18,16 @@ public class Proceso {
        
     public void agregarPersona(){
         
+        boolean verificar;
+        
+        do{
         String nombre = inOut.solicitarNombre("\nDigite su nombre");
         int cedula = inOut.solicitarEntero("\nDigite la cédula");
-         
+        
+         verificar = Verificarcc(cedula);
+        
+        } while(verificar==false);
+        
      
          String mensaje = "¿Qué tipo de persona desea agregar? \n"
                          +"1. Estudiante \n"
