@@ -38,7 +38,7 @@ public class Proyecto_Universidad {
                 }
                             
                 case 3:{
-                     System.exit(0);
+                     
                     break;
                 }
                 default:{

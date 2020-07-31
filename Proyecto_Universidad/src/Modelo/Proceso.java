@@ -74,6 +74,7 @@ public class Proceso {
                     Profesores profes = new Profesores(cedula,nombre,tarjeta);
                     profesores.add(profes);
                     personas.add(profes);
+
                      Proyecto_Universidad.menu();
                     break;
                 }
@@ -90,8 +91,7 @@ public class Proceso {
                     personas.add(obj_seguridad);
                     Proyecto_Universidad.menu();
                 }
-                     
-                case 5:{
+       case 5:{
                      Proyecto_Universidad.menu();
                     break;
                 }
