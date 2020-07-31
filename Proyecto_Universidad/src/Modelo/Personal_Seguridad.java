@@ -18,7 +18,10 @@ public class Personal_Seguridad extends Empleados{
         this.arma = arma;
         this.numBalas = numBalas;
     }
-
+    public int getnumCertificacion()
+    {
+        return numCertificacion;
+    }
     public String getArma() {
         return arma;
     }

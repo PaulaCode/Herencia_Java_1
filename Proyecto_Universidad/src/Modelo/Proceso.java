@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Control.Proyecto_Universidad;
 import Vista.InOut;
 import java.util.ArrayList;
 
@@ -14,8 +15,9 @@ public class Proceso {
         ArrayList <Personas> personas = new ArrayList();
         ArrayList <Estudiantes> lista_estudiantes = new ArrayList(); 
         ArrayList <Profesores> profesores = new ArrayList();
-    
-       InOut inOut = new InOut();
+        ArrayList <Personal_Seguridad> lista_seguridad = new ArrayList();
+        
+        InOut inOut = new InOut();
 
 
        
@@ -74,10 +76,21 @@ public class Proceso {
                     profesores.add(profes);
                     personas.add(profes);
                 }
+                case 4:{
+                    int numero_certificacion= inOut.solicitarEntero("Ingrese el número de matrícula de vigilante");
+                    while(validarMatriculaVigilante(numero_certificacion))
+                    {
+                        numero_certificacion= inOut.solicitarEntero("Ingrese el número de matrícula de vigilante  \n Esa matrícula ya se encuentra registrada");
+                    }
+                    String arma = inOut.solicitarNombre("Digite el modelo de la arma");
+                    int numero_balas = inOut.solicitarEntero("Digite el número de balas");
+                    Personal_Seguridad obj_seguridad = new Personal_Seguridad(numero_certificacion,arma,numero_balas,cedula,nombre);
+                    lista_seguridad.add(obj_seguridad);
+                    personas.add(obj_seguridad);
+                }
                      
                 case 5:{
-                     System.exit(0);
-
+                     Proyecto_Universidad.menu();
                     break;
                 }
                 default:{
@@ -89,13 +102,13 @@ public class Proceso {
     public void buscarPersona(){
         
         int cedula = inOut.solicitarEntero("\nDigite el número de cédula de la persona que desee buscar: ");
-        
+        boolean estado=false;
         for(int i=0 ; i<personas.size(); i++){
             
             if(personas.get(i).getIdentificacion_persona() == cedula){
       
-                inOut.mostrarResultado("\nLa persona es");
-                
+                inOut.mostrarResultado("\nLa persona es: ");
+                estado=true;
             }
                 
         }
@@ -120,7 +133,6 @@ public class Proceso {
           }
           return false;
     }
-
       public boolean VerificarTarjetadeProfesor(int c){
           boolean flag=false;
           for(int i =0;i<personas.size();i++){
@@ -130,5 +142,15 @@ public class Proceso {
           }
           return flag;
       }
-
+      public boolean validarMatriculaVigilante(int matricula_vigilante)
+      {
+          for(int i=0;i<lista_seguridad.size();i++)
+          {
+              if(lista_seguridad.get(i).getnumCertificacion()==matricula_vigilante)
+              {
+                  return true;
+              }
+          }
+          return false;
+      }
 }
