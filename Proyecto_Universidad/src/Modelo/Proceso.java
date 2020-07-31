@@ -91,12 +91,12 @@ public class Proceso {
                     personas.add(obj_seguridad);
                     Proyecto_Universidad.menu();
                 }
-       case 5:{
+               case 5:{
                      Proyecto_Universidad.menu();
                     break;
                 }
                 default:{
-                   
+                   Proyecto_Universidad.menu;
                 }    
      
             }
