@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
 
-/**
- *
- * @author paula
- */
-public class Estudiantes {
+public class Estudiantes extends Personas{
+    private int codigoEstudiantil;
+    
+    Estudiantes(int Cedula,String Nombre,int codigo){
+        super(Cedula,Nombre);
+        codigoEstudiantil=codigo;
+    } 
     
 }

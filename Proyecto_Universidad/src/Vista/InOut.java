@@ -1,4 +1,4 @@
-//bebe
+
 package Vista;
 
 import javax.swing.JOptionPane;
