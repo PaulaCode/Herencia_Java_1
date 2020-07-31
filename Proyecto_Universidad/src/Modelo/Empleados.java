@@ -9,6 +9,6 @@ package Modelo;
  *
  * @author paula
  */
-public class Empelados {
+public class Empleados {
     
 }
