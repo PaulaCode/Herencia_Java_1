@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 public class Proceso {
     
-    ArrayList <Personas> personas = new ArrayList();
-    
-       InOut inOut = new InOut();
+        ArrayList <Personas> personas = new ArrayList();
+        ArrayList <Estudiantes> lista_estudiantes = new ArrayList();
+          InOut inOut = new InOut();
 
        
     public void agregarPersona(){
@@ -34,9 +34,15 @@ public class Proceso {
             switch (opcion) {
                 case 1:
                 {
-                    
-                    
-                     break;   
+                    int codigo_estudiante = inOut.solicitarEntero("Digite el código del estudiante");
+                    while (verificarCarnet(codigo_estudiante))
+                   {
+                      codigo_estudiante = inOut.solicitarEntero("Digite el código del estudiante \n Ese código ya existe ");  
+                   }
+                    Estudiantes obj_estudiante = new Estudiantes(cedula,nombre,codigo_estudiante);
+                    lista_estudiantes.add(obj_estudiante);
+                    personas.add(obj_estudiante);
+                    break;   
                 }
    
                 case 2:
@@ -79,4 +85,13 @@ public class Proceso {
           }
           return flag;
       }
+    public boolean verificarCarnet(int codigo_estudiantil)
+    {
+         for(int i =0;i<lista_estudiantes.size();i++){
+              if(lista_estudiantes.get(i).getCodigoEstudiantil()==codigo_estudiantil){
+                 return true;
+              }
+          }
+          return false;
+    }
 }
