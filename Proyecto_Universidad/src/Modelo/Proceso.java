@@ -12,6 +12,7 @@ public class Proceso {
     
 
         ArrayList <Personas> personas = new ArrayList();
+        ArrayList <Personas> Adentro = new ArrayList();
         ArrayList <Estudiantes> lista_estudiantes = new ArrayList(); 
         ArrayList <Profesores> profesores = new ArrayList();
     
@@ -128,12 +129,31 @@ public class Proceso {
 
       public boolean VerificarTarjetadeProfesor(int c){
           boolean flag=false;
-          for(int i =0;i<personas.size();i++){
+          for(int i =0;i<profesores.size();i++){
               if(profesores.get(i).getIdentificacion_persona()==c){
                   flag=true;
               }
           }
           return flag;
       }
-
+      public void EntrarenlaU(){
+          
+        int cel = inOut.solicitarEntero("Ingrese la cedula para entrar en la universidad");
+        if(Verificarcc(cel)==true){
+            inOut.mostrarResultado("La persona"+VerificarEntrada(cel).getNombre_persona()+"Esta dentro de la universidad");
+            Adentro.add(VerificarEntrada(cel));
+            
+        }
+      }
+      
+ public Personas VerificarEntrada(int c){
+          boolean flag=false;
+          for(int i =0;i<personas.size();i++){
+              if(personas.get(i).getIdentificacion_persona()==c){
+                  return personas.get(i);
+              }
+            
+          }
+          return null;
+      }
 }
