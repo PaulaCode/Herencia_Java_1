@@ -9,20 +9,19 @@ import Vista.InOut;
 import java.util.ArrayList;
 
 public class Proceso {
-    
-
         ArrayList <Personas> personas = new ArrayList();
         ArrayList <Estudiantes> lista_estudiantes = new ArrayList(); 
         ArrayList <Profesores> profesores = new ArrayList();
+        ArrayList <Decanos> decanos = new ArrayList();
     
        InOut inOut = new InOut();
 
 
        
-    public void agregarPersona(){
+    public void agregarPersona(int numFacult){
         
         boolean verificar;
-        int cedula;
+        int cedula,decanos=0;
         String nombre;
         do{
          nombre = inOut.solicitarNombre("\nDigite su nombre");
@@ -60,12 +59,6 @@ public class Proceso {
    
                 case 2:
                 {
-                  break;   
-                }
-                            
-
-                case 3:{
-                    
                     int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
                     while(VerificarTarjetadeProfesor(tarjeta) == true ){
                       tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
@@ -73,13 +66,24 @@ public class Proceso {
                     Profesores profes = new Profesores(cedula,nombre,tarjeta);
                     profesores.add(profes);
                     personas.add(profes);
+                    
+                  break;   
+                }
+                            
+
+                case 3:{
+                    
+                    int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
+                    String nombreFacultad = inOut.solicitarNombre("\nDigite el nombre de la facultad que representa");
+                    while(VerificarTarjetadeProfesor(tarjeta) == true ){
+                      tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
+                    }
+                    Decanos profes = new Profesores(cedula,nombre,tarjeta);
+                    decanos.add(profes);
+                    personas.add(profes);
 
                     }
                      
-
- 
-                     
-
                 case 5:{
                      System.exit(0);
 
@@ -91,6 +95,7 @@ public class Proceso {
      
             }
     }
+ 
     public void buscarPersona(){
         
         int cedula = inOut.solicitarEntero("\nDigite el número de cédula de la persona que desee buscar: ");
@@ -134,6 +139,13 @@ public class Proceso {
               }
           }
           return flag;
+      }
+      
+      public boolean verificarFacultad(){
+          
+          
+          
+          
       }
 
 }
