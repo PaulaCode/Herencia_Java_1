@@ -13,6 +13,7 @@ public class Proceso {
     
 
         ArrayList <Personas> personas = new ArrayList();
+        ArrayList <Personas> Adentro = new ArrayList();
         ArrayList <Estudiantes> lista_estudiantes = new ArrayList(); 
         ArrayList <Profesores> profesores = new ArrayList();
         ArrayList <Personal_Seguridad> lista_seguridad = new ArrayList();
@@ -96,7 +97,7 @@ public class Proceso {
                     break;
                 }
                 default:{
-                   Proyecto_Universidad.menu;
+                   Proyecto_Universidad.menu();
                 }    
      
             }
@@ -137,13 +138,69 @@ public class Proceso {
     }
       public boolean VerificarTarjetadeProfesor(int c){
           boolean flag=false;
-          for(int i =0;i<personas.size();i++){
+          for(int i =0;i<profesores.size();i++){
               if(profesores.get(i).getIdentificacion_persona()==c){
                   flag=true;
               }
           }
           return flag;
       }
+      public void EntrarenlaU(){
+          
+        int cel = inOut.solicitarEntero("Ingrese la cedula para entrar en la universidad");
+        if(!validarEstancia(cel))
+        {
+         if(Verificarcc(cel)==true){
+            inOut.mostrarResultado("La persona "+VerificarEntrada(cel).getNombre_persona()+" Está dentro de la universidad");
+            Adentro.add(VerificarEntrada(cel));
+         }   
+        }
+        else
+        {
+            inOut.mostrarResultado("Usted ya se encuentra en la universidad");
+        }
+        
+      }
+      public void salirUniversidad(int cedula)
+      {
+         if(validarEstancia(cedula))
+         {
+             inOut.mostrarResultado("Vuelva pronto");
+             Adentro.remove(retornaSalida(cedula));
+         }
+         else
+         {
+             inOut.mostrarResultado("Usted no se encuentra dentro de la universidad");
+         }
+      }
+      public int retornaSalida(int cedula)
+      {
+          for(int i =0;i<Adentro.size();i++){
+              if(Adentro.get(i).getIdentificacion_persona()==cedula){
+                  return i;
+              }     
+          } 
+          return -1;
+      }
+      public boolean  validarEstancia(int cedula)
+      {
+          for(int i =0;i<Adentro.size();i++){
+              if(Adentro.get(i).getIdentificacion_persona()==cedula){
+                  return true;
+              }     
+          }
+           return false;  
+      }
+       public Personas VerificarEntrada(int c){
+          boolean flag=false;
+          for(int i =0;i<personas.size();i++){
+              if(personas.get(i).getIdentificacion_persona()==c){
+                  return personas.get(i);
+              }
+            
+          }
+          return null;
+    }
       public boolean validarMatriculaVigilante(int matricula_vigilante)
       {
           for(int i=0;i<lista_seguridad.size();i++)
@@ -154,5 +211,6 @@ public class Proceso {
               }
           }
           return false;
+
       }
 }
