@@ -3,7 +3,7 @@ package Modelo;
 import Vista.InOut;
 public class Estudiantes extends Personas{
     private int codigoEstudiantil;
-    
+
     Estudiantes(int Cedula,String Nombre,int codigo){
         super(Cedula,Nombre);
         codigoEstudiantil=codigo;
@@ -34,4 +34,10 @@ public class Estudiantes extends Personas{
          InOut IoData = new InOut();
         IoData.mostrarResultado("El estudiante "+super.getNombre_persona()+" esta haciendo un trabajo de"+materia);
     }
+
+    @Override
+    public String toString() {
+        return "Cédula: "+super.getIdentificacion_persona()+" Código: "+codigoEstudiantil+" Nombre: "+super.getNombre_persona();
+    }
+     
 }
