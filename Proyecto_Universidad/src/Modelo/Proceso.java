@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Proceso {
     
     ArrayList <Personas> personas = new ArrayList();
+    ArrayList <Profesores> profesores = new ArrayList();
     
        InOut inOut = new InOut();
 
@@ -45,7 +46,16 @@ public class Proceso {
                 }
                             
                 case 3:{
-                     System.exit(0);
+                    
+                    int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
+                    while(VerificarTarjetadeProfesor(tarjeta) == true ){
+                      tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
+                    }
+                    Profesores profes = new Profesores(cedula,nombre,tarjeta);
+                    profesores.add(profes);
+                    personas.add(profes);
+                    
+                     
                     break;
                 }
                 default:{
@@ -74,6 +84,15 @@ public class Proceso {
           boolean flag=false;
           for(int i =0;i<personas.size();i++){
               if(personas.get(i).getIdentificacion_persona()==c){
+                  flag=true;
+              }
+          }
+          return flag;
+      }
+      public boolean VerificarTarjetadeProfesor(int c){
+          boolean flag=false;
+          for(int i =0;i<personas.size();i++){
+              if(profesores.get(i).getIdentificacion_persona()==c){
                   flag=true;
               }
           }
