@@ -8,9 +8,8 @@ package Control;
 public class Proyecto_Universidad {
 
     public static void main(String[] args) {
-        // <333
-        // hermosa
-        
+  
+        //https://mega.nz/fm/CEV23YgZ
     }
     
 }
