@@ -10,10 +10,11 @@ import Vista.InOut;
 
 public class Decanos extends Profesores{
     private String UniversidadRepresentando;
-    private InOut ioData = new InOut();
-    public Decanos(int id,String nombre,int NumerodeTarjeta,String NombreU){
+
+     private InOut ioData = new InOut();
+    public Decanos(int id,String nombre,int NumerodeTarjeta,String NombreFacultad){
         super(id,nombre,NumerodeTarjeta);
-        UniversidadRepresentando=NombreU;
+        UniversidadRepresentando=NombreFacultad;
     }
     public void Reportes(){
        
@@ -27,5 +28,11 @@ public class Decanos extends Profesores{
     {
         ioData.mostrarResultado(super.getNombre_persona()+" digita notas");
     } 
+
+    public String getUniversidadRepresentando() {
+        return UniversidadRepresentando;
+    }
+        
+    
    
 }

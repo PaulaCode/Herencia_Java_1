@@ -38,5 +38,4 @@ public class Personal_Seguridad extends Empleados{
         this.numBalas = numBalas;
     }
 
-    
 }

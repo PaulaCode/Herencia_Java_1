@@ -10,21 +10,24 @@ import Vista.InOut;
 import java.util.ArrayList;
 
 public class Proceso {
-    
-
         ArrayList <Personas> personas = new ArrayList();
         ArrayList <Personas> Adentro = new ArrayList();
         ArrayList <Estudiantes> lista_estudiantes = new ArrayList(); 
         ArrayList <Profesores> profesores = new ArrayList();
         ArrayList <Personal_Seguridad> lista_seguridad = new ArrayList();
-        ArrayList <Decanos> lista_decanos = new ArrayList();
-        InOut inOut = new InOut();
+        ArrayList <Decanos> decanos = new ArrayList();
+    
+       InOut inOut = new InOut();
 
-
-       
-    public void agregarPersona(){
         
-        int cedula;
+
+    public void agregarPersona(int numFacult){
+        
+
+        boolean verificar;
+        int cedula,decanosCuenta=0;
+
+
         String nombre;
    
          cedula = inOut.solicitarEntero("\nDigite la cédula");
@@ -61,16 +64,33 @@ public class Proceso {
    
                 case 2:
                 {
-                   
-                    Proyecto_Universidad.menu();
-                    break;   
+                    if(decanosCuenta<numFacult){
+                    int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
+                    String nombreFacultad = inOut.solicitarNombre("\nDigite el nombre de la facultad que representa");
+                    while(VerificarTarjetadeProfesor(tarjeta) == true && verificarFacultad(nombreFacultad) == true ){
+                      tarjeta=inOut.solicitarEntero("\nEl número de tarjeta o el nombre de la facultad ya existen \nIngrese su Numero de Tarjeta profesional");
+                      nombreFacultad = inOut.solicitarNombre("\nDigite el nombre de la facultad que representa");
+                    }
+                    Decanos decano = new Decanos(cedula,nombre,tarjeta,nombreFacultad);
+                    personas.add(decano);
+                    decanos.add(decano);
+
+                     Proyecto_Universidad.menu();
+                     decanosCuenta++;
+                    }else{
+                        
+                        inOut.mostrarResultado("\nNo pueden registrarse más decanos.");
+                    }
+                    break;
+                    
+
                 }
                             
                 case 3:{
                     
                     int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
                     while(VerificarTarjetadeProfesor(tarjeta) == true ){
-                      tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
+                      tarjeta=inOut.solicitarEntero("\nEse número de tarjeta ya existe \nIngrese su Numero de Tarjeta profesional");
                     }
                     Profesores profes = new Profesores(cedula,nombre,tarjeta);
                     profesores.add(profes);
@@ -85,6 +105,7 @@ public class Proceso {
                     {
                         numero_certificacion= inOut.solicitarEntero("Ingrese el número de matrícula de vigilante  \n Esa matrícula ya se encuentra registrada");
                     }
+
                     String arma = inOut.solicitarNombre("Digite el modelo de la arma");
                     int numero_balas = inOut.solicitarEntero("Digite el número de balas");
                     Personal_Seguridad obj_seguridad = new Personal_Seguridad(numero_certificacion,arma,numero_balas,cedula,nombre);
@@ -92,9 +113,10 @@ public class Proceso {
                     personas.add(obj_seguridad);
                     Proyecto_Universidad.menu();
                 }
+
                case 5:{
                      Proyecto_Universidad.menu();
-                    break;
+                     break;
                 }
                 default:{
                    Proyecto_Universidad.menu();
@@ -102,6 +124,8 @@ public class Proceso {
      
             }
     }
+    
+ 
     public void buscarPersona(){
         
         int cedula = inOut.solicitarEntero("\nDigite el número de cédula de la persona que desee buscar: ");
@@ -145,6 +169,7 @@ public class Proceso {
           }
           return flag;
       }
+
       public void EntrarenlaU(){
           
         int cel = inOut.solicitarEntero("Ingrese la cedula para entrar en la universidad");
@@ -200,7 +225,7 @@ public class Proceso {
             
           }
           return null;
-    }
+       }
       public boolean validarMatriculaVigilante(int matricula_vigilante)
       {
           for(int i=0;i<lista_seguridad.size();i++)
@@ -211,6 +236,18 @@ public class Proceso {
               }
           }
           return false;
-
       }
+      
+      public boolean verificarFacultad(String facultad){
+          
+          for(int i=0 ; i<decanos.size(); i++){
+              
+              if(facultad.equalsIgnoreCase(decanos.get(i).getUniversidadRepresentando()))
+                  return true;
+          }
+          
+          return false;
+      }
+   
+      
 }
