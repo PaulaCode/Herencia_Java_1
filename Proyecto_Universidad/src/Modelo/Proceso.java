@@ -39,4 +39,13 @@ public class Proceso {
         
         
     }
+    public boolean Verificarcc(int c){
+          boolean flag=false;
+          for(int i =0;i<personas.size();i++){
+              if(personas.get(i).getIdentificacion_persona()==c){
+                  flag=true;
+              }
+          }
+          return flag;
+      }
 }
