@@ -5,7 +5,10 @@
  */
 package Modelo;
 
-
-public class Decanos {
+/**
+ *
+ * @author frealgagu
+ */
+public class Proceso {
     
 }
