@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class Proceso {
         ArrayList <Personas> personas = new ArrayList();
+        ArrayList <Personas> Adentro = new ArrayList();
         ArrayList <Estudiantes> lista_estudiantes = new ArrayList(); 
         ArrayList <Profesores> profesores = new ArrayList();
         ArrayList <Personal_Seguridad> lista_seguridad = new ArrayList();
@@ -24,7 +25,7 @@ public class Proceso {
         
 
         boolean verificar;
-        int cedula,decanos=0;
+        int cedula,decanosCuenta=0;
 
 
         String nombre;
@@ -63,18 +64,33 @@ public class Proceso {
    
                 case 2:
                 {
+                    if(decanosCuenta<numFacult){
+                    int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
+                    String nombreFacultad = inOut.solicitarNombre("\nDigite el nombre de la facultad que representa");
+                    while(VerificarTarjetadeProfesor(tarjeta) == true && verificarFacultad(nombreFacultad) == true ){
+                      tarjeta=inOut.solicitarEntero("\nEl número de tarjeta o el nombre de la facultad ya existen \nIngrese su Numero de Tarjeta profesional");
+                      nombreFacultad = inOut.solicitarNombre("\nDigite el nombre de la facultad que representa");
+                    }
+                    Decanos decano = new Decanos(cedula,nombre,tarjeta,nombreFacultad);
+                    personas.add(decano);
+                    decanos.add(decano);
 
-                   
-                    break;   
+                     Proyecto_Universidad.menu();
+                     decanosCuenta++;
+                    }else{
+                        
+                        inOut.mostrarResultado("\nNo pueden registrarse más decanos.");
+                    }
+                    break;
+                    
 
                 }
                             
                 case 3:{
                     
                     int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
-                    String nombreFacultad = inOut.solicitarNombre("\nDigite el nombre de la facultad que representa");
                     while(VerificarTarjetadeProfesor(tarjeta) == true ){
-                      tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
+                      tarjeta=inOut.solicitarEntero("\nEse número de tarjeta ya existe \nIngrese su Numero de Tarjeta profesional");
                     }
                     Profesores profes = new Profesores(cedula,nombre,tarjeta);
                     profesores.add(profes);
@@ -146,7 +162,7 @@ public class Proceso {
     }
       public boolean VerificarTarjetadeProfesor(int c){
           boolean flag=false;
-          for(int i =0;i<personas.size();i++){
+          for(int i =0;i<profesores.size();i++){
               if(profesores.get(i).getIdentificacion_persona()==c){
                   flag=true;
               }
@@ -154,7 +170,27 @@ public class Proceso {
           return flag;
       }
 
-
+      public void EntrarenlaU(){
+          
+        int cel = inOut.solicitarEntero("Ingrese la cedula para entrar en la universidad");
+        if(Verificarcc(cel)==true){
+            inOut.mostrarResultado("La persona"+VerificarEntrada(cel).getNombre_persona()+"Esta dentro de la universidad");
+            Adentro.add(VerificarEntrada(cel));
+            
+        }
+      }
+      
+ public Personas VerificarEntrada(int c){
+          boolean flag=false;
+          for(int i =0;i<personas.size();i++){
+              if(personas.get(i).getIdentificacion_persona()==c){
+                  return personas.get(i);
+              }
+            
+          }
+          return null;
+ }
+ 
       public boolean validarMatriculaVigilante(int matricula_vigilante)
       {
           for(int i=0;i<lista_seguridad.size();i++)
@@ -165,8 +201,19 @@ public class Proceso {
               }
           }
           return false;
-      }
 
+      }
       
+      public boolean verificarFacultad(String facultad){
+          
+          for(int i=0 ; i<decanos.size(); i++){
+              
+              if(facultad.equalsIgnoreCase(decanos.get(i).getUniversidadRepresentando()))
+                  return true;
+          }
+          
+          return false;
+      }
+   
       
 }

@@ -28,5 +28,11 @@ public class Decanos extends Profesores{
     {
         ioData.mostrarResultado(super.getNombre_persona()+" digita notas");
     } 
+
+    public String getUniversidadRepresentando() {
+        return UniversidadRepresentando;
+    }
+        
+    
    
 }
