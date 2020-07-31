@@ -17,10 +17,41 @@ public class Proceso {
        
     public void agregarPersona(){
         
-        
-        inOut.mostrarResultado("\nQué persona desea agregar?");
-        
-        
+        String nombre = inOut.solicitarNombre("\nDigite su nombre");
+        int cedula = inOut.solicitarEntero("\nDigite la cédula");
+         
+     
+         String mensaje = "¿Qué tipo de persona desea agregar? \n"
+                         +"1. Estudiante \n"
+                         +"2. Decanos \n"+
+                         "3. Profesor \n"+
+                         "4. Personal de seguridad \n"+
+                         "5. Salir\n\n"+"Digite una opción"
+                 ;
+ 
+       
+            int opcion = inOut.solicitarEntero(mensaje);
+            switch (opcion) {
+                case 1:
+                {
+                    
+                    
+                     break;   
+                }
+   
+                case 2:
+                {
+                  break;   
+                }
+                            
+                case 3:{
+                     System.exit(0);
+                    break;
+                }
+                default:{
+                   
+                }    
+     }
     }
       
     public void buscarPersona(){
