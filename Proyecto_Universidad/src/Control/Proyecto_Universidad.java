@@ -1,6 +1,7 @@
 
 package Control;
 
+import Modelo.Proceso;
 import Vista.InOut;
 
 public class Proyecto_Universidad {
@@ -14,7 +15,7 @@ public class Proyecto_Universidad {
                 
         InOut inOut = new InOut();
 
-
+        Proceso proceso = new Proceso();
         
         String mensaje = "Universidad Distrital \n"
                          +"1. Agregar persona \n"
@@ -27,6 +28,7 @@ public class Proyecto_Universidad {
             switch (opcion) {
                 case 1:
                 {
+                    proceso.agregarPersona();
                      break;   
                 }
    
