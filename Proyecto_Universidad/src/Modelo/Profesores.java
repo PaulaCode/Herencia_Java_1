@@ -17,6 +17,9 @@ public class Profesores extends Empleados {
     {
         ioData.mostrarResultado(super.getNombre_persona()+" dicta clase");
     }
-    
+       public void digitarNotas()
+    {
+        ioData.mostrarResultado(super.getNombre_persona()+" digita notas");
+    } 
     
 }
