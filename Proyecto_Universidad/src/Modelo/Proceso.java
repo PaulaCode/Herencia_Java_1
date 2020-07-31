@@ -25,11 +25,13 @@ public class Proceso {
          nombre = inOut.solicitarNombre("\nDigite su nombre");
          cedula = inOut.solicitarEntero("\nDigite la cédula");
         
-         verificar = Verificarcc(cedula);
+        verificar = Verificarcc(cedula);
         
-        } while(verificar==false);
+        if(verificar == false);
+            inOut.mostrarResultado("\nLa cédula está repetida ");
         
-     
+        } while(verificar == false);
+
          String mensaje = "¿Qué tipo de persona desea agregar? \n"
                          +"1. Estudiante \n"
                          +"2. Decanos \n"+
@@ -37,7 +39,6 @@ public class Proceso {
                          "4. Personal de seguridad \n"+
                          "5. Salir\n\n"+"Digite una opción"
                  ;
- 
        
             int opcion = inOut.solicitarEntero(mensaje);
             switch (opcion) {
@@ -53,6 +54,7 @@ public class Proceso {
                   break;   
                 }
                             
+<<<<<<< HEAD
                 case 3:{
                     
                     int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
@@ -64,6 +66,10 @@ public class Proceso {
                     personas.add(profes);
                     
                      
+=======
+                case 5:{
+                     System.exit(0);
+>>>>>>> dbe2692403c9d805688d7ac07ad8cdd40b06cbc6
                     break;
                 }
                 default:{
