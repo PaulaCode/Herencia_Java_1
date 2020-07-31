@@ -5,10 +5,7 @@
  */
 package Modelo;
 
-/**
- *
- * @author frealgagu
- */
+
 public class Proceso {
     
 }
