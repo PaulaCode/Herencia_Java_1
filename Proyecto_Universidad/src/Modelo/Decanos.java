@@ -10,7 +10,7 @@ import Vista.InOut;
 
 public class Decanos extends Profesores{
     private String UniversidadRepresentando;
-     private InOut ioData = new InOut();
+    private InOut ioData = new InOut();
     public Decanos(int id,String nombre,int NumerodeTarjeta,String NombreU){
         super(id,nombre,NumerodeTarjeta);
         UniversidadRepresentando=NombreU;

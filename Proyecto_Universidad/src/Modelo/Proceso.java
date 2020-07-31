@@ -16,27 +16,24 @@ public class Proceso {
         ArrayList <Estudiantes> lista_estudiantes = new ArrayList(); 
         ArrayList <Profesores> profesores = new ArrayList();
         ArrayList <Personal_Seguridad> lista_seguridad = new ArrayList();
-        
+        ArrayList <Decanos> lista_decanos = new ArrayList();
         InOut inOut = new InOut();
 
 
        
     public void agregarPersona(){
         
-        boolean verificar;
         int cedula;
         String nombre;
-        do{
-         nombre = inOut.solicitarNombre("\nDigite su nombre");
+   
          cedula = inOut.solicitarEntero("\nDigite la cédula");
-        
-        verificar = Verificarcc(cedula);
-        
-        if(verificar == false);
-            inOut.mostrarResultado("\nLa cédula está repetida ");
-        
-        } while(verificar == false);
-
+         while(Verificarcc(cedula))
+         {
+           cedula = inOut.solicitarEntero("\nDigite la cédula");   
+         }
+         nombre = inOut.solicitarNombre("\nDigite su nombre");
+ 
+       
          String mensaje = "¿Qué tipo de persona desea agregar? \n"
                          +"1. Estudiante \n"
                          +"2. Decanos \n"+
@@ -57,15 +54,24 @@ public class Proceso {
                     Estudiantes obj_estudiante = new Estudiantes(cedula,nombre,codigo_estudiante);
                     lista_estudiantes.add(obj_estudiante);
                     personas.add(obj_estudiante);
+                    Proyecto_Universidad.menu();
                     break;   
                 }
    
                 case 2:
                 {
-                  break;   
+                    int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
+                    while(VerificarTarjetadeProfesor(tarjeta) == true ){
+                      tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
+                    }
+                    String facultad = inOut.solicitarNombre("Digite el nombre de la sede o facultad que representa");
+                    Decanos obj_decano = new Decanos(cedula,nombre,tarjeta,facultad);
+                    lista_decanos.add(obj_decano);
+                    personas.add(obj_decano);
+                    Proyecto_Universidad.menu();
+                    break;   
                 }
                             
-
                 case 3:{
                     
                     int tarjeta=inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
@@ -75,6 +81,8 @@ public class Proceso {
                     Profesores profes = new Profesores(cedula,nombre,tarjeta);
                     profesores.add(profes);
                     personas.add(profes);
+                     Proyecto_Universidad.menu();
+                    break;
                 }
                 case 4:{
                     int numero_certificacion= inOut.solicitarEntero("Ingrese el número de matrícula de vigilante");
@@ -87,6 +95,7 @@ public class Proceso {
                     Personal_Seguridad obj_seguridad = new Personal_Seguridad(numero_certificacion,arma,numero_balas,cedula,nombre);
                     lista_seguridad.add(obj_seguridad);
                     personas.add(obj_seguridad);
+                    Proyecto_Universidad.menu();
                 }
                      
                 case 5:{
