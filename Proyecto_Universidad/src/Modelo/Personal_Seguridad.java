@@ -8,12 +8,18 @@ package Modelo;
 
 public class Personal_Seguridad extends Empleados{
     
+<<<<<<< HEAD
     public final int numCertificacion;
     public String arma;
     public int numBalas;
+=======
 
-    public Personal_Seguridad(int numCertificacion, String arma, int numBalas) {
-        this.numCertificacion = numCertificacion;
+    public final String arma;
+    public final int numBalas;
+>>>>>>> 0320f2c30202083eb0794232fec64a333d514ba1
+
+    public Personal_Seguridad(int numCertificacion,String nombre, String arma, int numBalas) {
+        super(numCertificacion,nombre);
         this.arma = arma;
         this.numBalas = numBalas;
     }
