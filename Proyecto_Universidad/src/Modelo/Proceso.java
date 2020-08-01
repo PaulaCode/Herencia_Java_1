@@ -55,14 +55,14 @@ public class Proceso {
                     int tarjeta = inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
                     String nombreFacultad = inOut.solicitarNombre("\nDigite el nombre de la facultad que representa");
                     while (VerificarTarjetadeProfesor(tarjeta) == true || verificarFacultad(nombreFacultad) == true || VerificarTarjetadeDecano(tarjeta) ==true) {
-                        tarjeta = inOut.solicitarEntero("\nEl número de tarjeta o el nombre de la facultad ya existen \nIngrese su Numero de Tarjeta profesional");
+                        tarjeta = inOut.solicitarEntero("El número de tarjeta o el nombre de la facultad ya existen \nIngrese su Numero de Tarjeta profesional");
                         nombreFacultad = inOut.solicitarNombre("\nDigite el nombre de la facultad que representa");
                     }
                     Decanos decano = new Decanos(cedula, nombre, tarjeta, nombreFacultad);
                     personas.add(decano);
                     decanos.add(decano);
                 } else {
-                    inOut.mostrarResultado("\nNo pueden registrarse más decanos.");
+                    inOut.mostrarResultado("No pueden registrarse más decanos.");
                 }
                 break;
 
@@ -100,7 +100,7 @@ public class Proceso {
             }
             default: {
 
-                inOut.mostrarResultado("\nNinguna opción válida fue elegida.");
+                inOut.mostrarResultado("Ninguna opción válida fue elegida.");
 
             }
 
@@ -109,7 +109,7 @@ public class Proceso {
 
     public void buscarPersona() {
 
-        int cedula = inOut.solicitarEntero("\nDigite el número de cédula de la persona que desee buscar: ");
+        int cedula = inOut.solicitarEntero("Digite el número de cédula de la persona que desee buscar: ");
 
         for (int i = 0; i < lista_estudiantes.size(); i++) {
 
