@@ -119,7 +119,7 @@ public class Proceso {
                     break;
                 }
                 default:{
-                   
+                   inOut.mostrarResultado("\nNinguna opción válida fue elegida.");
                 }    
      
             }
