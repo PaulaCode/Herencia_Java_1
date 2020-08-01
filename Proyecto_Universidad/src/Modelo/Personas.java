@@ -26,8 +26,6 @@ public class Personas {
         this.nombre_persona = nombre_persona;
     }
     
-    public String toString(){
-        return ("")
-    }
+   
     
 }

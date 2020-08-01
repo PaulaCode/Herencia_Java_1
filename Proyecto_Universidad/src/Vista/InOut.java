@@ -9,9 +9,9 @@ public class InOut {
      public int solicitarEntero(String m) {
         do {
             try {
-                return Integer.parseInt(JOptionPane.showInputDialog(m+"\nDebe ser un dato  numérico"));
+                return Integer.parseInt(JOptionPane.showInputDialog(m));
             } catch (NumberFormatException ex) {
-                //Entra aquí si hay error convirtiendo de String a entero
+                JOptionPane.showMessageDialog(null,"Debe ser un dato  numérico"); //Entra aquí si hay error convirtiendo de String a entero
             }
         } while(true);
     }
@@ -20,9 +20,9 @@ public class InOut {
     public double solicitarDoubles(String m) {
         do {
             try {
-                return Double.parseDouble(JOptionPane.showInputDialog(m+"\nDebe ser un dato  numérico"));
+                return Double.parseDouble(JOptionPane.showInputDialog(m));
             } catch (NumberFormatException ex) {
-                //Entra aquí si hay error convirtiendo de String a double
+                 JOptionPane.showMessageDialog(null,"Debe ser un dato  numérico");//Entra aquí si hay error convirtiendo de String a double
             }
         } while(true);
     }
@@ -35,9 +35,9 @@ public class InOut {
     public float solicitardecimal(String m) {
         do {
             try {
-                return Float.parseFloat(JOptionPane.showInputDialog(m+"\nDebe ser un dato de  numérico"));
+                return Float.parseFloat(JOptionPane.showInputDialog(m));
             } catch (NumberFormatException ex) {
-                //Entra aquí si hay error convirtiendo de String a float
+                JOptionPane.showMessageDialog(null,"Debe ser un dato  numérico"); //Entra aquí si hay error convirtiendo de String a float
             }
         } while(true);
     }

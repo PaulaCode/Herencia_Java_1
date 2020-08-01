@@ -62,11 +62,13 @@ public class Proyecto_Universidad {
                     proceso.salirUniversidad();
                     break;
                 }
+                case 7:
+                    break;
                 default:{
                    inOut.mostrarResultado("Ninguna opción válida fue elegida");
                 }    
             }
-        } while(opcion!=3);
+        } while(opcion!=7);
     }
     
 }
