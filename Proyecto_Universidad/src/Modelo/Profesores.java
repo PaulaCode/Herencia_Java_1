@@ -15,11 +15,11 @@ public class Profesores extends Empleados {
     
     public String dictarClase()
     {
-       return (" dicta clase");
+       return (" -Dicta clase");
     }
        public String digitarNotas()
     {
-        return (" digita notas");
+        return (" -Digita notas");
     } 
        
         public String getNombre(){

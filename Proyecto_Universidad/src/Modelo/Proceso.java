@@ -132,18 +132,18 @@ public class Proceso {
     public void buscarPersona(){
         
         int cedula = inOut.solicitarEntero("\nDigite el número de cédula de la persona que desee buscar: ");
-        boolean estado=false;
+
         for(int i=0 ; i<lista_estudiantes.size(); i++){
             
             if(lista_estudiantes.get(i).getIdentificacion_persona() == cedula){
       
                 inOut.mostrarResultado(lista_estudiantes.get(i).toString() + 
-                        "\nY "+lista_estudiantes.get(i).AsistiendoaClase() +" ,"+lista_estudiantes.get(i).Leer()+
-                        ", "+lista_estudiantes.get(i).Pagarmatricula()+
-                        ", "+lista_estudiantes.get(i).entregarTrabajo()
+                        "\nFunciones: \n"+lista_estudiantes.get(i).AsistiendoaClase() +" \n"+lista_estudiantes.get(i).Leer()+
+                        "\n"+lista_estudiantes.get(i).Pagarmatricula()+
+                        "\n"+lista_estudiantes.get(i).entregarTrabajo()
                         
                         );
-                estado=true;
+                 Proyecto_Universidad.menu();
             }
         }
             for(int i=0 ; i<profesores.size(); i++){
@@ -151,24 +151,26 @@ public class Proceso {
             if(profesores.get(i).getIdentificacion_persona() == cedula){
       
                 inOut.mostrarResultado(profesores.get(i).toString() + 
-                        "\nY "+profesores.get(i).dictarClase() +
-                        ",  "+profesores.get(i).digitarNotas()
-                        
+                        "\nFunciones: \n"+profesores.get(i).dictarClase() +
+                        "\n"+profesores.get(i).digitarNotas()       
                         );
-                estado=true;
+                 Proyecto_Universidad.menu();         
             }
             }  
             
             for(int i=0 ; i<lista_seguridad.size(); i++){
             
-            if(lista_seguridad.get(i).getIdentificacion_persona() == cedula){
-      
-                inOut.mostrarResultado(lista_seguridad.get(i).toString() + 
-                        "\nY su arma es"+lista_seguridad.get(i).getArma() +
-                        "\nY tiene una cantidad de balas de "+lista_seguridad.get(i).getNumBalas()
-                        );
-                estado=true;
-            }
+                if(lista_seguridad.get(i).getIdentificacion_persona() == cedula){
+
+                    inOut.mostrarResultado(lista_seguridad.get(i).toString() + 
+                            "\nY su arma es"+lista_seguridad.get(i).getArma() +
+                            "\nY tiene una cantidad de balas de "+lista_seguridad.get(i).getNumBalas()+
+                            "\nFunciones: \n"
+                            +lista_seguridad.get(i).dispararArma()
+                            );
+                    Proyecto_Universidad.menu(); 
+                }
+            
             }  
             
              for(int i=0 ; i<decanos.size(); i++){
@@ -177,10 +179,10 @@ public class Proceso {
       
                 inOut.mostrarResultado(decanos.get(i).toString() + 
                         "\nY representa a la facultad"+decanos.get(i).getUniversidadRepresentando() +
-                        ", "+decanos.get(i).dictarClase()+ 
-                        ", "+decanos.get(i).digitarNotas()
+                        "Funciones: \n"+decanos.get(i).dictarClase()+ 
+                        "\n"+decanos.get(i).digitarNotas()
                         );
-                estado=true;
+             Proyecto_Universidad.menu(); 
             }
             }  
         }
@@ -261,7 +263,6 @@ public class Proceso {
            return false;  
       }
        public Personas VerificarEntrada(int c){
-          boolean flag=false;
           for(int i =0;i<personas.size();i++){
               if(personas.get(i).getIdentificacion_persona()==c){
                   return personas.get(i);
