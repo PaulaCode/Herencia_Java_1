@@ -26,5 +26,8 @@ public class Personas {
         this.nombre_persona = nombre_persona;
     }
     
+    public String toString(){
+        return "Identificación : "+this.identificacion_persona+" Nombre : "+this.nombre_persona+"\n";
+    }
     
 }
