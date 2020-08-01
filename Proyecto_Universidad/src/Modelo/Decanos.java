@@ -46,6 +46,11 @@ public class Decanos extends Profesores{
          
          return super.getIdentificacion_persona();
      }
+     
+     public int getNumTarjeta(){
+         
+         return super.numero_tarjeta;
+     }
     
     @Override
     public String toString() {

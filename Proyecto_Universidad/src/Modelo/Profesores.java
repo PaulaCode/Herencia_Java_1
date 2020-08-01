@@ -31,6 +31,11 @@ public class Profesores extends Empleados {
          
          return super.getIdentificacion_persona();
      }
+     
+     public int getNumeroTarjeta(){
+         
+         return numero_tarjeta;
+     }
        
        public String toString() {
         return "La persona con cédula: "+super.getIdentificacion_persona()+" es un profesor con \nNúmero de tarjeta: "+numero_tarjeta+" y su nombre es "+super.getNombre_persona();
