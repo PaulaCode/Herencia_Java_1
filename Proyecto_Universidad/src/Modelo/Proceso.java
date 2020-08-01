@@ -347,12 +347,14 @@ public class Proceso {
       }
       
        public void mostrarPersonasAdentro(){
+        
           String mensaje="";
           for(int i =0;i<Adentro.size();i++)
           {
               mensaje+= Adentro.get(i).toString();
           }
           inOut.mostrarResultado(mensaje);     
+
       }
    
       
