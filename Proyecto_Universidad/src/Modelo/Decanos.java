@@ -10,22 +10,47 @@ import Vista.InOut;
 
 public class Decanos extends Profesores{
     private String UniversidadRepresentando;
-    private InOut ioData = new InOut();
-    public Decanos(int id,String nombre,int NumerodeTarjeta,String NombreU){
+
+     private InOut ioData = new InOut();
+    public Decanos(int id,String nombre,int NumerodeTarjeta,String NombreFacultad){
         super(id,nombre,NumerodeTarjeta);
-        UniversidadRepresentando=NombreU;
+        UniversidadRepresentando=NombreFacultad;
     }
     public void Reportes(){
        
         ioData.mostrarResultado("El Decano:"+super.getNombre_persona()+"esta generando reportes");
     }
-    public void dictarClase()
+   
+  
+    @Override
+    public String dictarClase()
     {
-        ioData.mostrarResultado(super.getNombre_persona()+" dicta clase");
+        return (" dicta clase");
     }
-        public void digitarNotas()
+    @Override
+        public String digitarNotas()
     {
-        ioData.mostrarResultado(super.getNombre_persona()+" digita notas");
+        return (" digita notas");
     } 
+
+    public String getUniversidadRepresentando() {
+        return UniversidadRepresentando;
+    }
+    
+     public String getNombre(){
+         
+         return super.getNombre_persona();
+     }
+     
+     public int getCedula(){
+         
+         return super.getIdentificacion_persona();
+     }
+    
+    @Override
+    public String toString() {
+        return "La persona con cédula: "+super.getIdentificacion_persona()+" es un decano con \nNúmero de tarjeta: "+super.numero_tarjeta+" y su nombre es "+super.getNombre_persona();
+    }
+    
    
 }

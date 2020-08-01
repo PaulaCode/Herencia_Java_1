@@ -17,23 +17,27 @@ public class Proyecto_Universidad {
 
         Proceso proceso = new Proceso();
         
-        String mensaje = "Universidad Distrital \n"
+        String universidad = inOut.solicitarNombre("\nDigite el nombre de la universidad: ");
+        int numFacult = inOut.solicitarEntero("\nDigite el número de facultades de la universidad "+universidad);
+        
+        String mensaje = "Universidad"+ universidad + " \n"
                          +"1. Agregar persona \n"
                          +"2. Mostrar personas \n"+
                          "3. Salir\n\n"+"Digite una opción"
                  ;
- 
+        
        
             int opcion = inOut.solicitarEntero(mensaje);
             switch (opcion) {
                 case 1:
                 {
-                    proceso.agregarPersona();
+                    proceso.agregarPersona(numFacult);
                      break;   
                 }
    
                 case 2:
                 {
+                    
                   break;   
                 }
                             

@@ -5,21 +5,35 @@ import Vista.InOut;
 
 public class Profesores extends Empleados {
     
-    private int numero_tarjeta;
-    private InOut ioData = new InOut();
+    public int numero_tarjeta;
+    public InOut ioData = new InOut();
     public Profesores(int identificacion_profesor,String nombre_profesor,int numero_tarjeta)
     {
         super(identificacion_profesor,nombre_profesor);
         this.numero_tarjeta=numero_tarjeta;
     }
     
-    public void dictarClase()
+    public String dictarClase()
     {
-        ioData.mostrarResultado(super.getNombre_persona()+" dicta clase");
+       return (" dicta clase");
     }
-       public void digitarNotas()
+       public String digitarNotas()
     {
-        ioData.mostrarResultado(super.getNombre_persona()+" digita notas");
+        return (" digita notas");
     } 
+       
+        public String getNombre(){
+         
+         return super.getNombre_persona();
+     }
+     
+     public int getCedula(){
+         
+         return super.getIdentificacion_persona();
+     }
+       
+       public String toString() {
+        return "La persona con cédula: "+super.getIdentificacion_persona()+" es un profesor con \nNúmero de tarjeta: "+numero_tarjeta+" y su nombre es "+super.getNombre_persona();
+    }
     
 }
