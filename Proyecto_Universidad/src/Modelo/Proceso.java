@@ -58,7 +58,7 @@ public class Proceso {
                     Estudiantes obj_estudiante = new Estudiantes(cedula,nombre,codigo_estudiante);
                     lista_estudiantes.add(obj_estudiante);
                     personas.add(obj_estudiante);
-                    Proyecto_Universidad.menu();
+                
                     break;   
                 }
    
@@ -75,7 +75,6 @@ public class Proceso {
                     personas.add(decano);
                     decanos.add(decano);
 
-                     Proyecto_Universidad.menu();
                      decanosCuenta++;
                     }else{
                         
@@ -83,7 +82,6 @@ public class Proceso {
                     }
                     break;
                     
-
                 }
                             
                 case 3:{
@@ -96,7 +94,6 @@ public class Proceso {
                     profesores.add(profes);
                     personas.add(profes);
 
-                     Proyecto_Universidad.menu();
                     break;
                 }
                 case 4:{
@@ -111,18 +108,17 @@ public class Proceso {
                     Personal_Seguridad obj_seguridad = new Personal_Seguridad(numero_certificacion,arma,numero_balas,cedula,nombre);
                     lista_seguridad.add(obj_seguridad);
                     personas.add(obj_seguridad);
-                    Proyecto_Universidad.menu();
+                   
                 }
 
                case 5:{
-                     Proyecto_Universidad.menu();
+  
                      break;
                 }
                 default:{
 
                    inOut.mostrarResultado("\nNinguna opción válida fue elegida.");
-                   Proyecto_Universidad.menu();
-
+    
                 }    
      
             }
