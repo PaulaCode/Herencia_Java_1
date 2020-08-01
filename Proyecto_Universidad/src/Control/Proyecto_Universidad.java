@@ -55,8 +55,11 @@ public class Proyecto_Universidad {
                     break;
                 }
                 case 5:{
-                    
-                    proceso
+                    proceso.salirUniversidad();
+                    break;
+                }
+                case 6:{
+                    proceso.salirUniversidad();
                     break;
                 }
                 default:{
