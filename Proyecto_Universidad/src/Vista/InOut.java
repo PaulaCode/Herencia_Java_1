@@ -9,7 +9,7 @@ public class InOut {
      public int solicitarEntero(String m) {
         do {
             try {
-                return Integer.parseInt(JOptionPane.showInputDialog(m+"\nDebe ser un dato de  numérico"));
+                return Integer.parseInt(JOptionPane.showInputDialog(m+"\nDebe ser un dato  numérico"));
             } catch (NumberFormatException ex) {
                 //Entra aquí si hay error convirtiendo de String a entero
             }
@@ -20,7 +20,7 @@ public class InOut {
     public double solicitarDoubles(String m) {
         do {
             try {
-                return Double.parseDouble(JOptionPane.showInputDialog(m+"\nDebe ser un dato de  numérico"));
+                return Double.parseDouble(JOptionPane.showInputDialog(m+"\nDebe ser un dato  numérico"));
             } catch (NumberFormatException ex) {
                 //Entra aquí si hay error convirtiendo de String a double
             }
