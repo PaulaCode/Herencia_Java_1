@@ -145,7 +145,7 @@ public class Proceso {
           }
           return flag;
       }
-<<<<<<< HEAD
+
       public void EntrarenlaU(){
           
         int cel = inOut.solicitarEntero("Ingrese la cedula para entrar en la universidad");
@@ -165,7 +165,7 @@ public class Proceso {
             
           }
           return null;
-=======
+}
       public boolean validarMatriculaVigilante(int matricula_vigilante)
       {
           for(int i=0;i<lista_seguridad.size();i++)
@@ -176,6 +176,6 @@ public class Proceso {
               }
           }
           return false;
->>>>>>> 8155a00e778dc0db0f1e70e9e7a7d5fd9116f77a
+
       }
 }
