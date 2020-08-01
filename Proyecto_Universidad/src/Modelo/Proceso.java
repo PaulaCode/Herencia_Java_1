@@ -139,7 +139,7 @@ public class Proceso {
                         "\n"+lista_estudiantes.get(i).entregarTrabajo()
                         
                         );
-                 Proyecto_Universidad.menu();
+           
             }
         }
             for(int i=0 ; i<profesores.size(); i++){
@@ -150,7 +150,7 @@ public class Proceso {
                         "\nFunciones: \n"+profesores.get(i).dictarClase() +
                         "\n"+profesores.get(i).digitarNotas()       
                         );
-                 Proyecto_Universidad.menu();         
+               
             }
             }  
             
@@ -164,7 +164,7 @@ public class Proceso {
                             "\nFunciones: \n"
                             +lista_seguridad.get(i).dispararArma()
                             );
-                    Proyecto_Universidad.menu(); 
+                   
                 }
             
             }  
@@ -178,7 +178,7 @@ public class Proceso {
                         "Funciones: \n"+decanos.get(i).dictarClase()+ 
                         "\n"+decanos.get(i).digitarNotas()
                         );
-             Proyecto_Universidad.menu(); 
+          
             }
             }  
         }

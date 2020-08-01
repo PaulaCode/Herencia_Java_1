@@ -24,8 +24,12 @@ public class Proyecto_Universidad {
         do{
         String mensaje = "Universidad"+ universidad + " \n"
                          +"1. Agregar persona \n"
-                         +"2. Mostrar personas \n"+
-                         "3. Salir\n\n"+"Digite una opción"
+                         +"2. Mostrar personas \n"
+                         +"3. Buscar persona \n"
+                         +"4. Autorizar entrada \n"
+                         +"5. Autorizar salida \n"
+                         +"6. Ver personas que están en la universidad \n"
+                         +"7. Salir\n\n"+"Digite una opción"
                  ;
         
              opcion = inOut.solicitarEntero(mensaje);
@@ -41,8 +45,18 @@ public class Proyecto_Universidad {
                     proceso.mostrarPersonas();
                   break;   
                 }       
-                case 3:{
-                     
+                 case 3:
+                {
+                    proceso.mostrarPersonas();
+                  break;   
+                }   
+                case 4:{
+                    proceso.EntrarenlaU();
+                    break;
+                }
+                case 5:{
+                    
+                    proceso
                     break;
                 }
                 default:{
@@ -52,4 +66,5 @@ public class Proyecto_Universidad {
         } while(opcion!=3);
     }
     
+}
 
