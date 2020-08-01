@@ -27,7 +27,7 @@ public class Personas {
     }
     
     public String toString(){
-        return ("")
+        return "Identificación : "+this.identificacion_persona+" Nombre : "+this.nombre_persona+"\n";
     }
     
 }

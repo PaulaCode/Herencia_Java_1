@@ -47,7 +47,7 @@ public class Proyecto_Universidad {
                 }       
                  case 3:
                 {
-                    proceso.mostrarPersonas();
+                    proceso.buscarPersona();
                   break;   
                 }   
                 case 4:{
@@ -59,7 +59,7 @@ public class Proyecto_Universidad {
                     break;
                 }
                 case 6:{
-                    proceso.salirUniversidad();
+                    proceso.mostrarPersonasAdentro();
                     break;
                 }
                 default:{

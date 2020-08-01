@@ -344,22 +344,12 @@ public class Proceso {
       }
       
        public void mostrarPersonasAdentro(){
-          
-          int contador;
-          
-          inOut.mostrarResultado("\nLos estudiantes son:");
-          for(int i=0 ; i<Adentro.size(); i++){
-            contador =0;
-              inOut.mostrarResultado("Estudiante "+contador+ 
-                      ": \nNombre:"+Adentro.get(i).getNombre() + 
-                      "\nCédula:"+lista_estudiantes.get(i).getCedula()+
-                      "\nCódigo:"+lista_estudiantes.get(i).getCodigoEstudiantil()
-                        );
-          
-        }
-          
-         
-
+          String mensaje="";
+          for(int i =0;i<Adentro.size();i++)
+          {
+              mensaje+= Adentro.get(i).toString();
+          }
+          inOut.mostrarResultado(mensaje);     
       }
    
       
