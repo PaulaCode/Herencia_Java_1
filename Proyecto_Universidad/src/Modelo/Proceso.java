@@ -307,7 +307,7 @@ public class Proceso {
                         );
           
         }
-        
+          
            inOut.mostrarResultado("\nLos profesores son:");
             for(int i=0 ; i<profesores.size(); i++){
              contador =0;
@@ -334,12 +334,12 @@ public class Proceso {
              for(int i=0 ; i<decanos.size(); i++){
              contador =0;
            
-                inOut.mostrarResultado(decanos.get(i).toString() + 
-                        "\nY representa a la facultad"+decanos.get(i).getUniversidadRepresentando() +
-                        ", "+decanos.get(i).dictarClase()+ 
-                        ", "+decanos.get(i).digitarNotas()
+                inOut.mostrarResultado("Decano "+contador+ 
+                      ": \nNombre:"+decanos.get(i).getNombre() + 
+                      "\nCédula:"+decanos.get(i).getCedula()+
+                      "\nNúmero de tarjeta:"+decanos.get(i).getNumTarjeta()+
+                      "\nY representa la facultad:"+decanos.get(i).getUniversidadRepresentando()
                         );
-
             }  
           
           
