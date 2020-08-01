@@ -218,7 +218,7 @@ public class Proceso {
         } else {
             inOut.mostrarResultado("Usted ya se encuentra en la universidad");
         }
-<<<<<<< HEAD
+
         
       }
       public void salirUniversidad()
@@ -280,9 +280,10 @@ public class Proceso {
       public boolean verificarFacultad(String facultad){
           
           for(int i=0 ; i<decanos.size(); i++){
-=======
+
 
     }
+          }
 
     public void salirUniversidad() {
         int cedula = inOut.solicitarEntero("Ingrese la cédula: ");
@@ -374,7 +375,7 @@ public class Proceso {
              String acumulador = " ";
              acumulador +=("Las personas de seguridad son:\n");
             for (int i = 0; i < lista_seguridad.size(); i++) {
->>>>>>> f1f7fccca74859650532627e5d9caaa4c0309245
+
               
                 acumulador +=("Estudiante " + (i+1)
                         + ": \nNombre:" + lista_seguridad.get(i).getNombre()
