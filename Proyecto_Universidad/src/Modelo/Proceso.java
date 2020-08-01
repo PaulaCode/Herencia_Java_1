@@ -302,31 +302,33 @@ public class Proceso {
             contador =0;
               inOut.mostrarResultado("Estudiante "+contador+ 
                       ": \nNombre:"+lista_estudiantes.get(i).getNombre() + 
-                      "\nCédula:"+lista_estudiantes.get(i).getCedula()
+                      "\nCédula:"+lista_estudiantes.get(i).getCedula()+
+                      "\nCódigo:"+lista_estudiantes.get(i).getCodigoEstudiantil()
                         );
           
         }
+        
            inOut.mostrarResultado("\nLos profesores son:");
             for(int i=0 ; i<profesores.size(); i++){
              contador =0;
            
                inOut.mostrarResultado("Profesor "+contador+ 
-                      ": \nNombre:"+lista_estudiantes.get(i).getNombre() + 
-                      "\nCédula:"+lista_estudiantes.get(i).getCedula()
+                      ": \nNombre:"+profesores.get(i).getNombre() + 
+                      "\nCédula:"+profesores.get(i).getCedula()+
+                      "\nNúmero de tarjeta:"+profesores.get(i).getNumeroTarjeta()
                         );
             }  
             
             inOut.mostrarResultado("\nLas personas de seguridad son:");
             for(int i=0 ; i<lista_seguridad.size(); i++){
              contador =0;
-           
-      
-                inOut.mostrarResultado(lista_seguridad.get(i).toString() + 
-                        "\nY su arma es"+lista_seguridad.get(i).getArma() +
-                        "\nY tiene una cantidad de balas de "+lista_seguridad.get(i).getNumBalas()
+                inOut.mostrarResultado("Estudiante "+contador+ 
+                      ": \nNombre:"+lista_seguridad.get(i).getNombre() + 
+                      "\nCédula:"+lista_seguridad.get(i).getCedula()+
+                      "\nNúmero de certificación:"+lista_seguridad.get(i).getnumCertificacion()+
+                      "\nTiene una arma:"+lista_seguridad.get(i).getArma()+
+                      "\nCon número de balas: "+ lista_seguridad.get(i).getNumBalas()
                         );
-      
-            
             }  
             inOut.mostrarResultado("\nLos decanos son:");
              for(int i=0 ; i<decanos.size(); i++){
