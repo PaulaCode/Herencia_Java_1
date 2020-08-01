@@ -37,5 +37,19 @@ public class Personal_Seguridad extends Empleados{
     public void setNumBalas(int numBalas) {
         this.numBalas = numBalas;
     }
-
+    
+     public String getNombre(){
+         
+         return super.getNombre_persona();
+     }
+     
+     public int getCedula(){
+         
+         return super.getIdentificacion_persona();
+     }
+    
+    
+     public String toString() {
+        return "La persona con cédula: "+super.getIdentificacion_persona()+" es personal de seguridad con \nNúmero de certificación: "+numCertificacion+" y su nombre es "+super.getNombre_persona();
+    }
 }
