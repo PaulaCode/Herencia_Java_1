@@ -52,6 +52,7 @@ public class Personal_Seguridad extends Empleados{
          return "-Disparar arma";
      }
     
+    @Override
      public String toString() {
         return "La persona con cédula: "+super.getIdentificacion_persona()+" es personal de seguridad con \nNúmero de certificación: "+numCertificacion+" y su nombre es "+super.getNombre_persona();
     }
