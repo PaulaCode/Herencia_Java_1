@@ -24,8 +24,11 @@ public class Proceso {
         String nombre;
 
         cedula = inOut.solicitarEntero("\nDigite la cédula");
-        while (Verificarcc(cedula)) {
-            cedula = inOut.solicitarEntero("\nDigite la cédula");
+        while (Verificarcc(cedula) || cedula<0) {
+            if(Verificarcc(cedula))
+            cedula = inOut.solicitarEntero("Esta cédula ya está registrada. \nDigite la cédula");
+            else
+             cedula = inOut.solicitarEntero("La cédula no puede ser negativa. \nDigite la cédula");
         }
         nombre = inOut.solicitarNombre("\nDigite su nombre");
 
@@ -260,7 +263,6 @@ public class Proceso {
 
 }
 
-       
       public boolean validarMatriculaVigilante(int matricula_vigilante)
    {
           for(int i=0;i<lista_seguridad.size();i++)
@@ -296,6 +298,9 @@ public class Proceso {
                         + "\nCódigo:" + lista_estudiantes.get(i).getCodigoEstudiantil()
                 );
                 
+                if(i == lista_estudiantes.size()-1)
+                    acumulador+= ("\n\nY ellos "+lista_estudiantes.get(i).Pagarmatricula()+ ", "+lista_estudiantes.get(i).AsistiendoaClase() 
+                                +", "+lista_estudiantes.get(i).entregarTrabajo()+ ", "+lista_estudiantes.get(i).Leer());
             }
             inOut.mostrarResultado(acumulador);
         }
@@ -308,6 +313,9 @@ public class Proceso {
                         + "\nCédula:" + profesores.get(i).getCedula()
                         + "\nNúmero de tarjeta:" + profesores.get(i).getNumeroTarjeta()
                 );
+                
+                 if(i == profesores.size()-1)
+                    acumulador+= ("\n\nY ellos "+profesores.get(i).dictarClase()+ ", "+profesores.get(i).digitarNotas());           
             }
              inOut.mostrarResultado(acumulador);
         }
@@ -316,7 +324,6 @@ public class Proceso {
              acumulador +=("Las personas de seguridad son:\n");
             for (int i = 0; i < lista_seguridad.size(); i++) {
 
-    
                 acumulador +=("Guardia " + (i+1)+"\n"
                         + ": \nNombre:" + lista_seguridad.get(i).getNombre()
                         + "\nCédula:" + lista_seguridad.get(i).getCedula()
@@ -324,6 +331,9 @@ public class Proceso {
                         + "\nTiene una arma:" + lista_seguridad.get(i).getArma()
                         + "\nCon número de balas: " + lista_seguridad.get(i).getNumBalas()
                 );
+                
+                 if(i == lista_seguridad.size()-1)
+                    acumulador+= ("\n\nY ellos "+lista_seguridad.get(i).dispararArma());
             }
              inOut.mostrarResultado(acumulador);
         }
@@ -338,6 +348,8 @@ public class Proceso {
                         + "\nNúmero de tarjeta:" + decanos.get(i).getNumTarjeta()
                         + "\nY representa la facultad:" + decanos.get(i).getUniversidadRepresentando()
                 );
+                if(i == decanos.size()-1)
+                    acumulador+= ("\n\nY ellos "+decanos.get(i).dictarClase()+ ", "+decanos.get(i).digitarNotas());
             }
              inOut.mostrarResultado(acumulador);
         }
@@ -368,8 +380,7 @@ public void mostrarDecanos(){
       if (!decanos.isEmpty()) {
              String acumulador = " ";
              acumulador +=("Los decanos son: \n");
-            for (int i = 0; i < decanos.size(); i++) {
-             
+            for (int i = 0; i < decanos.size(); i++) {       
                 acumulador +=("Decano " + (i+1)+"\n"
                         + ": \nNombre:" + decanos.get(i).getNombre()
                         + "\nY representa la facultad:" + decanos.get(i).getUniversidadRepresentando()

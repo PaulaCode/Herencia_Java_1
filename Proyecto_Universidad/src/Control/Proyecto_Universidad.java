@@ -19,7 +19,7 @@ public class Proyecto_Universidad {
         Proceso proceso = new Proceso();
         do {
             String mensaje = " ";
-            mensaje += " \n 1. Modo administrador"
+            mensaje += " 1. Modo administrador"
                     + "\n 2. Modo guardia "
                     + "\n 3. Modo visitante"
                     + "\n 4. Salir";
@@ -32,6 +32,9 @@ public class Proyecto_Universidad {
                         clave = clavead;
                         universidad = inOut.solicitarNombre("Digite el nombre de la universidad: ");
                         numFacult = inOut.solicitarEntero("Digite el número de facultades de la universidad " + universidad);
+                        while(numFacult <=0){
+                             numFacult = inOut.solicitarEntero("Error en el número de facultades. \nDigite el número de facultades de la universidad " + universidad);
+                        }
                         band = true;
                         menu(universidad, numFacult, inOut, proceso);
                     } else {
@@ -186,7 +189,7 @@ public class Proyecto_Universidad {
         InOut ioData = new InOut();
 
         do {
-            String mensaje = "\n1.Mostrar decanos"
+            String mensaje = "1.Mostrar decanos"
                     + "\n2.Salir " + "\n\nElija una opcion";
             opc = ioData.solicitarEntero(mensaje);
             switch (opc) {
