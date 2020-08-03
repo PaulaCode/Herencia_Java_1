@@ -7,7 +7,6 @@ public class Proyecto_Universidad {
          private static final String clave ="hola123";
          
          
-         
     public static void main(String[] args) {
    
         InOut inOut = new InOut();
@@ -29,10 +28,12 @@ public class Proyecto_Universidad {
         case 1:{
            clavead= inOut.solicitarNombre("Ingrese la clave de administrador: ");
             if(clavead.equals(clave)){
-                 
+                 if(band ==false){
          universidad = inOut.solicitarNombre("Digite el nombre de la universidad: ");
          numFacult = inOut.solicitarEntero("Digite el número de facultades de la universidad " + universidad);
        band=true;
+       menu(universidad, numFacult, inOut,proceso);
+                 } else
         menu(universidad, numFacult, inOut,proceso);
             }
             break;
