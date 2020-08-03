@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
 
 import Control.Proyecto_Universidad;
@@ -17,7 +13,7 @@ public class Proceso {
     ArrayList<Profesores> profesores = new ArrayList();
     ArrayList<Personal_Seguridad> lista_seguridad = new ArrayList();
     ArrayList<Decanos> decanos = new ArrayList();
-
+    
     InOut inOut = new InOut();
 
     public void agregarPersona(int numFacult) {
@@ -59,14 +55,14 @@ public class Proceso {
                     int tarjeta = inOut.solicitarEntero("Ingrese su Numero de Tarjeta profesional");
                     String nombreFacultad = inOut.solicitarNombre("\nDigite el nombre de la facultad que representa");
                     while (VerificarTarjetadeProfesor(tarjeta) == true || verificarFacultad(nombreFacultad) == true || VerificarTarjetadeDecano(tarjeta) ==true) {
-                        tarjeta = inOut.solicitarEntero("\nEl número de tarjeta o el nombre de la facultad ya existen \nIngrese su Numero de Tarjeta profesional");
+                        tarjeta = inOut.solicitarEntero("El número de tarjeta o el nombre de la facultad ya existen \nIngrese su Numero de Tarjeta profesional");
                         nombreFacultad = inOut.solicitarNombre("\nDigite el nombre de la facultad que representa");
                     }
                     Decanos decano = new Decanos(cedula, nombre, tarjeta, nombreFacultad);
                     personas.add(decano);
                     decanos.add(decano);
                 } else {
-                    inOut.mostrarResultado("\nNo pueden registrarse más decanos.");
+                    inOut.mostrarResultado("No pueden registrarse más decanos.");
                 }
                 break;
 
@@ -104,7 +100,7 @@ public class Proceso {
             }
             default: {
 
-                inOut.mostrarResultado("\nNinguna opción válida fue elegida.");
+                inOut.mostrarResultado("Ninguna opción válida fue elegida.");
 
             }
 
@@ -113,7 +109,7 @@ public class Proceso {
 
     public void buscarPersona() {
 
-        int cedula = inOut.solicitarEntero("\nDigite el número de cédula de la persona que desee buscar: ");
+        int cedula = inOut.solicitarEntero("Digite el número de cédula de la persona que desee buscar: ");
 
         for (int i = 0; i < lista_estudiantes.size(); i++) {
 
@@ -219,56 +215,63 @@ public class Proceso {
             inOut.mostrarResultado("Usted ya se encuentra en la universidad");
         }
 
-    }
+        
+      }
+      public void salirUniversidad()
+      {
+         int cedula = inOut.solicitarEntero("Ingrese la cédula: ");
 
-    public void salirUniversidad() {
-        int cedula = inOut.solicitarEntero("Ingrese la cédula: ");
+         if(validarEstancia(cedula))
+         {
+             inOut.mostrarResultado("Vuelva pronto");
+             Adentro.remove(retornaSalida(cedula));
+         }
+         else
+         {
+             inOut.mostrarResultado("Usted no se encuentra dentro de la universidad");
+         }
+      }
+      public int retornaSalida(int cedula)
+      {
+          for(int i =0;i<Adentro.size();i++){
+              if(Adentro.get(i).getIdentificacion_persona()==cedula){
+                  return i;
+              }     
+          } 
+          return -1;
+      }
+      public boolean  validarEstancia(int cedula)
+      {
+          for(int i =0;i<Adentro.size();i++){
+              if(Adentro.get(i).getIdentificacion_persona()==cedula){
+                  return true;
+              }     
+          }
+           return false;  
+      }
+       public Personas VerificarEntrada(int c){
+          for(int i =0;i<personas.size();i++){
+              if(personas.get(i).getIdentificacion_persona()==c){
+                  return personas.get(i);
+              }
+            
+          }
+          return null;
 
-        if (validarEstancia(cedula)) {
-            inOut.mostrarResultado("Vuelva pronto");
-            Adentro.remove(retornaSalida(cedula));
-        } else {
-            inOut.mostrarResultado("Usted no se encuentra dentro de la universidad");
-        }
-    }
+}
 
-    public int retornaSalida(int cedula) {
-        for (int i = 0; i < Adentro.size(); i++) {
-            if (Adentro.get(i).getIdentificacion_persona() == cedula) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public boolean validarEstancia(int cedula) {
-        for (int i = 0; i < Adentro.size(); i++) {
-            if (Adentro.get(i).getIdentificacion_persona() == cedula) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public Personas VerificarEntrada(int c) {
-        for (int i = 0; i < personas.size(); i++) {
-            if (personas.get(i).getIdentificacion_persona() == c) {
-                return personas.get(i);
-            }
-
-        }
-        return null;
-    }
-
-    public boolean validarMatriculaVigilante(int matricula_vigilante) {
-        for (int i = 0; i < lista_seguridad.size(); i++) {
-            if (lista_seguridad.get(i).getnumCertificacion() == matricula_vigilante) {
-                return true;
-            }
-        }
-        return false;
-    }
-
+       
+      public boolean validarMatriculaVigilante(int matricula_vigilante)
+   {
+          for(int i=0;i<lista_seguridad.size();i++)
+          {
+              if(lista_seguridad.get(i).getnumCertificacion()==matricula_vigilante)
+              {
+                  return true;
+              }
+          }
+          return false;
+      }
     public boolean verificarFacultad(String facultad) {
 
         for (int i = 0; i < decanos.size(); i++) {
@@ -287,19 +290,20 @@ public class Proceso {
             String acumulador = " ";
            acumulador += ("Los estudiantes son:\n");
             for (int i = 0; i < lista_estudiantes.size(); i++) {
-                acumulador+=("Estudiante " + (i+1)
+                acumulador+=("\nEstudiante " + (i+1)
                         + ": \nNombre:" + lista_estudiantes.get(i).getNombre()
                         + "\nCédula:" + lista_estudiantes.get(i).getCedula()
                         + "\nCódigo:" + lista_estudiantes.get(i).getCodigoEstudiantil()
                 );
-                inOut.mostrarResultado(acumulador);
+                
             }
+            inOut.mostrarResultado(acumulador);
         }
         if (!profesores.isEmpty()) {
              String acumulador = " ";
-            acumulador +=("Los profesores son:\n");
+            acumulador +=("\nLos profesores son:\n");
             for (int i = 0; i < profesores.size(); i++) {
-                acumulador+=("Profesor " + (i+1)
+                acumulador+=("Profesor " + (i+1)+"\n"
                         + ": \nNombre:" + profesores.get(i).getNombre()
                         + "\nCédula:" + profesores.get(i).getCedula()
                         + "\nNúmero de tarjeta:" + profesores.get(i).getNumeroTarjeta()
@@ -311,8 +315,9 @@ public class Proceso {
              String acumulador = " ";
              acumulador +=("Las personas de seguridad son:\n");
             for (int i = 0; i < lista_seguridad.size(); i++) {
-              
-                acumulador +=("Estudiante " + (i+1)
+
+    
+                acumulador +=("Guardia " + (i+1)+"\n"
                         + ": \nNombre:" + lista_seguridad.get(i).getNombre()
                         + "\nCédula:" + lista_seguridad.get(i).getCedula()
                         + "\nNúmero de certificación:" + lista_seguridad.get(i).getnumCertificacion()
@@ -327,7 +332,7 @@ public class Proceso {
              acumulador +=("Los decanos son: \n");
             for (int i = 0; i < decanos.size(); i++) {
              
-                acumulador +=("Decano " + (i+1)
+                acumulador +=("Decano " + (i+1)+"\n"
                         + ": \nNombre:" + decanos.get(i).getNombre()
                         + "\nCédula:" + decanos.get(i).getCedula()
                         + "\nNúmero de tarjeta:" + decanos.get(i).getNumTarjeta()
@@ -357,5 +362,18 @@ public class Proceso {
 
         return false;
     }
-
+public void mostrarDecanos(){
+      if (!decanos.isEmpty()) {
+             String acumulador = " ";
+             acumulador +=("Los decanos son: \n");
+            for (int i = 0; i < decanos.size(); i++) {
+             
+                acumulador +=("Decano " + (i+1)+"\n"
+                        + ": \nNombre:" + decanos.get(i).getNombre()
+                        + "\nY representa la facultad:" + decanos.get(i).getUniversidadRepresentando()
+                );
+            }
+             inOut.mostrarResultado(acumulador);
+        }
+}
 }
