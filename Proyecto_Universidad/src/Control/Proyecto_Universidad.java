@@ -28,8 +28,7 @@ public class Proyecto_Universidad {
             switch (opc) {
                 case 1: {
                     if (band == false) {
-                        clavead = inOut.solicitarNombre("Ingrese la clave del administrador: ");
-                        clave = clavead;
+                        clave = inOut.solicitarNombre("Ingrese la clave del administrador: ");
                         universidad = inOut.solicitarNombre("Digite el nombre de la universidad: ");
                         numFacult = inOut.solicitarEntero("Digite el número de facultades de la universidad " + universidad);
                         while(numFacult <=0){
@@ -51,8 +50,7 @@ public class Proyecto_Universidad {
                 case 2: {
                     if (band == true) {
                         if (bandVigilante == false) {
-                            clavead = inOut.solicitarNombre("Ingrese la clave de vigilante: ");
-                            claveVigilante = clavead;
+                           claveVigilante = inOut.solicitarNombre("Ingrese la clave de vigilante: ");
                             menuVigilante(universidad, numFacult, inOut, proceso);
                             bandVigilante = true;
                         } else {
@@ -97,7 +95,8 @@ public class Proyecto_Universidad {
                     + "1. Agregar persona \n"
                     + "2. Mostrar personas \n"
                     + "3. Ver personas que están en la universidad \n"
-                    + "4. Salir\n\n" + "Digite una opción";
+                    + "4. Cambiar contraseña \n"
+                    + "5. Salir\n\n" + "Digite una opción";
 
             opcion = inOut.solicitarEntero(mensaje);
             switch (opcion) {
@@ -123,15 +122,25 @@ public class Proyecto_Universidad {
                     break;
                 }
                 case 4: {
-
+                    String clave1 = inOut.solicitarNombre("Digite su contraseña actual");
+                    if(clave.equals(clave1))
+                    {
+                        clave = inOut.solicitarNombre("Digite su nueva contraseña");
+                    }
+                    else
+                    {
+                       System.out.println("clave incorrecta "); 
+                    }
                     break;
                 }
-
+                case 5:{
+                    break;
+                }
                 default: {
                     inOut.mostrarResultado("Ninguna opción válida fue elegida");
                 }
             }
-        } while (opcion != 4);
+        } while (opcion != 5);
     }
 
     public static void menuVigilante(String universidad, int numFacult, InOut inOut, Proceso proceso) {
@@ -143,7 +152,8 @@ public class Proyecto_Universidad {
                     + "1. Autorizar entrada \n"
                     + "2. Autorizar Salida \n"
                     + "3. Buscar persona \n"
-                    + "4. Dejar el turno\n" + "\n\nElija una opcion";
+                    + "4. Cambiar clave\n"
+                    + "5. Dejar el turno\n" + "\n\nElija una opcion";
 
             opcion = inOut.solicitarEntero(mensaje);
             switch (opcion) {
@@ -173,6 +183,19 @@ public class Proyecto_Universidad {
                     break;
                 }
                 case 4: {
+                    String clave1 = inOut.solicitarNombre("Digite su contraseña actual");
+                    if(claveVigilante.equals(clave1))
+                    {
+                        claveVigilante = inOut.solicitarNombre("Digite su nueva contraseña");
+                        
+                    }
+                    else
+                    {
+                       System.out.println("clave incorrecta "); 
+                    }
+                    break;
+                }
+                case 5:{
                     break;
                 }
 
@@ -180,7 +203,7 @@ public class Proyecto_Universidad {
                     inOut.mostrarResultado("Ninguna opción válida fue elegida");
                 }
             }
-        } while (opcion != 4);
+        } while (opcion != 5);
 
     }
 
