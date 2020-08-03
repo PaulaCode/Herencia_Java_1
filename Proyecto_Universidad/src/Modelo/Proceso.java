@@ -345,12 +345,14 @@ public class Proceso {
     }
 
     public void mostrarPersonasAdentro() {
-
+        if(!Adentro.isEmpty()){
         String mensaje = "";
         for (int i = 0; i < Adentro.size(); i++) {
             mensaje += Adentro.get(i).toString();
         }
         inOut.mostrarResultado(mensaje);
+        } else
+            inOut.mostrarResultado("No hay personas dentro de la universidad.");
 
     }
 
@@ -374,6 +376,7 @@ public void mostrarDecanos(){
                 );
             }
              inOut.mostrarResultado(acumulador);
-        }
+        } else
+          inOut.mostrarResultado("Todavía no hay decanos en la universidad");
 }
 }
